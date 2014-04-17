@@ -1,0 +1,207 @@
+// Accessibility-friendly hiding.
+@mixin hide {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+// Undo hiding.
+@mixin show {
+  position: static;
+}
+
+// Remove list styles.
+@mixin nolist {
+  list-style: none;
+  padding: 0;
+}
+
+// Show ellipsis.
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Text selection.
+@mixin selection($prefixes: ('-webkit-','-moz-', '-ms-', '-o-', '')) {
+  @each $prefix in $prefixes {
+    ::#{$prefix}selection {
+      @content;
+    }
+  }
+}
+
+// Links.
+@mixin link($color-normal, $color-hover, $property) {
+  #{$property}: $color-normal;
+
+  &:hover, &:focus {
+    #{$property}: $color-hover;
+  }
+}
+
+@mixin link-normal($property: color) {
+  @include link($link-color, $link-color-hover, $property);
+}
+
+@mixin link-alternate($property: color) {
+  @include link($link-alternate-color, $link-alternate-color-hover, $property);
+}
+
+@mixin link-inverse($property: color) {
+  @include link($link-inverse-color, $link-inverse-color-hover, $property);
+}
+
+// Transitions.
+@mixin transition-normal($properties...) {
+  $list: ();
+  @each $property in $properties {
+    $list: append($list, ($property .25s ease-in-out), comma);
+  }
+  @include transition($list);
+}
+
+// Vertical clamping.
+@mixin clamp-to($lines: $lines, $foreground-color: #000, $background-color: #FFF, $text-level: 0, $content: '→') {
+  height: $lines * size-for-text-level($text-level);
+  overflow: hidden;
+
+  position: relative;
+
+  &:after {
+    content: $content;
+    height: size-for-text-level($text-level);
+    padding-right: 1.5em;
+    text-align: right;
+    width: 5em;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include linear-gradient(to right, transparentize($background-color, 1) 0%, $background-color 50%);
+  }
+}
+
+// Boxy container.
+@mixin boxy($foreground-color: #000, $background-color: #FFF, $border-radius: 1em) {
+  background-color: $background-color;
+  border-radius: $border-radius;
+  box-shadow: 0 0 $border-radius rgba(0, 0, 0, .25);
+  color: $foreground-color;
+
+  & > header {
+    background-color: $foreground-color;
+    border-radius: $border-radius $border-radius 0 0;
+    color: $background-color;
+    position: relative;
+
+    .title {
+      color: $background-color;
+      text-align: center;
+
+      @include leader(0);
+      @include trailer(0);
+    }
+  }
+}
+
+// Spacey container.
+@mixin spacey($medium: true, $wide: true) {
+  padding: 0 $spacing-small $spacing-small $spacing-small;
+
+  @if $medium {
+    @include media($break-medium) {
+      padding-left: $spacing-medium;
+      padding-right: $spacing-medium;
+    }
+  }
+
+  @if $wide {
+    @include media($break-wide) {
+      padding-left: $spacing-wide;
+      padding-right: $spacing-wide;
+    }
+  }
+
+  & > header {
+    margin-left: -$spacing-small;
+    margin-right: -$spacing-small;
+    padding-left: $spacing-small;
+    padding-right: $spacing-small;
+
+    @if $medium {
+      @include media($break-medium) {
+        margin-left: -$spacing-medium;
+        margin-right: -$spacing-medium;
+        padding-left: $spacing-medium;
+        padding-right: $spacing-medium;
+      }
+    }
+
+    @if $wide {
+      @include media($break-wide) {
+        margin-left: -$spacing-wide;
+        margin-right: -$spacing-wide;
+        padding-left: $spacing-wide;
+        padding-right: $spacing-wide;
+      }
+    }
+  }
+}
+
+// Full-width element.
+@mixin fullspacey($medium: true, $wide: true) {
+  margin-left: -$spacing-small;
+  margin-right: -$spacing-small;
+
+  @if $medium {
+    @include media($break-medium) {
+      margin-left: -$spacing-medium;
+      margin-right: -$spacing-medium;
+    }
+  }
+
+  @if $wide {
+    @include media($break-wide) {
+      margin-left: -$spacing-wide;
+      margin-right: -$spacing-wide;
+    }
+  }
+}
+
+// Speech bubble.
+@mixin bubbly($foreground-color: #000, $background-color: #FFF, $alignment: 'right', $distance: 4em, $arrow-size: 1em, $border-size: .35em, $border-radius: 1em) {
+  background-color: $background-color;
+  border: ($border-size * .75) solid $foreground-color;
+  border-radius: $border-radius;
+
+  position: relative;
+
+  &:before {
+    border-color: $foreground-color transparent;
+    border-style: solid;
+    border-width: $arrow-size $arrow-size 0;
+    content: '';
+    display: block;
+    width: 0;
+
+    position: absolute;
+    bottom: -$arrow-size;
+    #{$alignment}: $distance;
+  }
+
+  &:after {
+    border-color: $background-color transparent;
+    border-style: solid;
+    border-width: ($arrow-size - $border-size) ($arrow-size - $border-size) 0;
+    content: '';
+    display: block;
+    width: 0;
+
+    position: absolute;
+    bottom: -($arrow-size - $border-size - 0.05);
+    #{$alignment}: $distance + $border-size;
+  }
+}

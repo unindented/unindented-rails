@@ -1,0 +1,24 @@
+{
+  "fonts": [
+    "./app/assets/fonts/unindented_f019799fa8ba63264897a6ab756fbbdb.ttf",
+    "./app/assets/fonts/unindented_f019799fa8ba63264897a6ab756fbbdb.woff",
+    "./app/assets/fonts/unindented_f019799fa8ba63264897a6ab756fbbdb.eot",
+    "./app/assets/fonts/unindented_f019799fa8ba63264897a6ab756fbbdb.svg"
+  ],
+  "templates": [
+    "./app/assets/stylesheets/themes/shared/_fonts.scss"
+  ],
+  "glyphs": [
+    "00-empty",
+    "01-logo",
+    "02-home",
+    "03-articles",
+    "04-experiments",
+    "05-about",
+    "06-subscribe",
+    "07-mail",
+    "08-twitter",
+    "09-github",
+    "10-top"
+  ]
+}

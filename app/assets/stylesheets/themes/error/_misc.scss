@@ -1,0 +1,43 @@
+/* Misc */
+
+#dialog {
+  margin: 0 auto;
+  max-width: 36em;
+  padding: 1em;
+
+  @include bubbly($content-foreground-color, $content-background-color);
+}
+
+#foxes {
+  max-width: 36em;
+  opacity: .5;
+  width: 100%;
+
+  @include trailer(0);
+}
+
+#goog-fixurl {
+  @include leader(3);
+
+  form {
+    display: table;
+    width: 100%;
+
+    input {
+      display: table-cell;
+      margin: 0;
+      width: 100%;
+
+      @include media($break-medium) {
+        width: 67.5%;
+
+        &[type='button'],
+        &[type='reset'],
+        &[type='submit'] {
+          margin-left: 2.5%;
+          width: 30%;
+        }
+      }
+    }
+  }
+}

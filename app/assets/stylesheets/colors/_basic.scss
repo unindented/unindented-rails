@@ -1,0 +1,64 @@
+/* Palette */
+
+$primary-color-1:   #293F54;
+$primary-color-2:   #006EB3;
+$primary-color-3:   #ECF0F3;
+$primary-color-4:   #FFFFFF;
+
+$primary-colors:    $primary-color-1,
+                    $primary-color-2,
+                    $primary-color-3,
+                    $primary-color-4;
+
+$secondary-color-1: #4EB1CB;
+$secondary-color-2: #CF5C60;
+$secondary-color-3: #717ECD;
+$secondary-color-4: #4AB471;
+$secondary-color-5: #F3AE4E;
+$secondary-color-6: #D96383;
+
+$secondary-colors:  $secondary-color-1,
+                    $secondary-color-2,
+                    $secondary-color-3,
+                    $secondary-color-4,
+                    $secondary-color-5,
+                    $secondary-color-6;
+
+/* Colors */
+
+$background-color:             $primary-color-3;
+$foreground-color:             darken($primary-color-3, 50%);
+$inverse-background-color:     $primary-color-1;
+$inverse-foreground-color:     darken($primary-color-3, 25%);
+$content-background-color:     $primary-color-4;
+$content-foreground-color:     darken($primary-color-3, 50%);
+
+$link-color:                   $primary-color-2;
+$link-color-hover:             darken($link-color, 12.5%);
+$link-alternate-color:         darken($link-color, 12.5%);
+$link-alternate-color-hover:   $link-color;
+$link-inverse-color:           $primary-color-3;
+$link-inverse-color-hover:     $primary-color-4;
+
+$select-background-color:      $primary-color-2;
+$select-foreground-color:      $primary-color-4;
+
+$header-color:                 $primary-color-1;
+
+$border-color:                 darken($primary-color-3, 5%);
+$button-color:                 $primary-color-4;
+$code-color:                   $primary-color-2;
+$overflow-color:               $primary-color-4;
+$placeholder-color:            darken($primary-color-3, 5%);
+
+$code-comment-color:           desaturate($secondary-color-6, 100%);
+$code-error-color:             darken($secondary-color-1, 12.5%);
+$code-function-color:          darken($secondary-color-1, 12.5%);
+$code-hilite-color:            $background-color;
+$code-name-color:              darken($secondary-color-1, 12.5%);
+$code-number-color:            darken($secondary-color-4, 6.25%);
+$code-generic-color:           darken($secondary-color-1, 12.5%);
+$code-plain-color:             $foreground-color;
+$code-string-color:            darken($secondary-color-3, 6.25%);
+$code-type-color:              darken($secondary-color-1, 12.5%);
+$code-var-color:               darken($secondary-color-1, 6.25%);

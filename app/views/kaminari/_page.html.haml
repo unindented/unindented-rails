@@ -1,0 +1,3 @@
+%li{class: [:page, page.current? && :current]}
+  = link_to_unless(page.current?, page, url, { remote: remote, rel: page.next? ? :next : page.prev? ? :prev : nil }) do |name|
+    - content_tag(:span, name)

@@ -1,0 +1,6 @@
+= twitter_card_meta_tag(:card,        :summary)
+= twitter_card_meta_tag(:site,        twitter_text)
+= twitter_card_meta_tag(:creator,     twitter_text)
+= twitter_card_meta_tag(:url,         current_url)
+= twitter_card_meta_tag(:title,       content_for?(:title)       ? yield(:title).strip       : title_text)
+= twitter_card_meta_tag(:description, content_for?(:description) ? yield(:description).strip : subtitle_text)

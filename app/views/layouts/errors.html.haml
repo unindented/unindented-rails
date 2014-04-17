@@ -1,0 +1,32 @@
+!!!
+%html{lang: :en}
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{name: :viewport, content: 'width=device-width, initial-scale=1.0'}
+
+    %title
+      = content_for?(:title) ? "#{yield(:title)} | #{title_text}" : "#{title_text} | #{subtitle_text}"
+
+    = stylesheet_link_tag(:errors, media: :all)
+
+    = feed_link_tag(:atom)
+    = feed_link_tag(:tile)
+
+    = humans_link_tag('/humans.txt')
+
+    = render partial: 'shared/icons_apple'
+    = render partial: 'shared/icons_fav'
+
+    = render partial: 'shared/meta_microsoft'
+    = render partial: 'shared/meta_twitter'
+
+    = tagman_script_tag
+    = webfonts_script_tag
+
+  %body{id: :top, class: controller.controller_name}
+    = tagman_noscript_tag
+
+    %div{id: :dialog}
+      = yield
+
+    = image_tag 'foxes.svg', id: 'foxes', alt: t('.foxes')

@@ -1,0 +1,5 @@
+- author  = link_to(author_text, content_path(:about))
+- license = link_to(t('.license'), 'http://creativecommons.org/licenses/by-sa/4.0/')
+
+%p{class: :container}
+  = raw t('.copyright', author: author, license: license)

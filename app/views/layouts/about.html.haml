@@ -1,0 +1,14 @@
+- content_for(:title) do
+  = @content.title
+
+- content_for(:extensions) do
+  = mathjax_script_tag if @content.extensions_list.include?('MathJax')
+
+- content_for(:application) do
+
+  %article{class: :document}
+    = render partial: 'shared/content_header', locals: { content: @content }
+    %div{class: [:body, :container]}
+      = content_for?(:about) ? yield(:about) : yield
+
+= render template: 'layouts/application'

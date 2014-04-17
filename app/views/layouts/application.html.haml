@@ -1,0 +1,57 @@
+!!!
+%html{lang: :en}
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{name: :viewport, content: 'width=device-width, initial-scale=1.0'}
+
+    %title
+      = content_for?(:title) ? "#{yield(:title)} | #{title_text}" : "#{title_text} | #{subtitle_text}"
+
+    = stylesheet_link_tag(:application, media: :all)
+
+    = feed_link_tag(:atom)
+    = feed_link_tag(:tile)
+
+    = humans_link_tag('/humans.txt')
+
+    = render partial: 'shared/icons_apple'
+    = render partial: 'shared/icons_fav'
+
+    = render partial: 'shared/meta_microsoft'
+    = render partial: 'shared/meta_open_graph'
+    = render partial: 'shared/meta_twitter'
+
+    = yield(:navigation) if content_for?(:navigation)
+
+    = tagman_script_tag
+    = webfonts_script_tag
+
+  %body{id: :top, class: controller.controller_name}
+    = tagman_noscript_tag
+
+    :javascript
+      var primary   = ['#293F54', '#006EB3', '#ECF0F3', '#FFFFFF'];
+      var secondary = ['#4EB1CB', '#CF5C60', '#717ECD', '#4AB471', '#F3AE4E', '#D96383'];
+
+      window['palette'] = {
+        primary:   primary,
+        secondary: secondary,
+
+        foreground: primary[0],
+        background: primary[3],
+        border:     primary[2],
+
+        random: function () {
+          return secondary[Math.floor(Math.random() * secondary.length)];
+        }
+      };
+
+    - content = content_for?(:application) ? yield(:application) : yield
+
+    = render partial: 'shared/page_header'
+    = render partial: 'shared/page_main', locals: { content: content }
+    = render partial: 'shared/page_footer'
+
+    = javascript_include_tag(:application, async: true)
+
+    = yield(:extensions) if content_for?(:extensions)

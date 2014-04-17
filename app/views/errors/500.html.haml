@@ -1,0 +1,6 @@
+- content_for(:title) do
+  = raw t('.title')
+
+%h1{class: :title}
+  = raw t('.header')
+= raw t('.body')

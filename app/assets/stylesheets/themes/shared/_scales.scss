@@ -1,0 +1,37 @@
+// Minor third (5:6).
+@function minor-third-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 6 / 5)
+}
+// Major third (4:5).
+@function major-third-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 5 / 4)
+}
+// Perfect fourth (3:4).
+@function perfect-fourth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 4 / 3)
+}
+// Augmented fourth (1:sqrt(2)).
+@function augmented-fourth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, sqrt(2))
+}
+// Diminished fifth (1:sqrt(2)).
+@function diminished-fifth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, sqrt(2))
+}
+// Perfect fifth (2:3).
+@function perfect-fifth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 3 / 2)
+}
+// Minor sixth (5:8).
+@function minor-sixth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 8 / 5)
+}
+// Major sixth (3:5).
+@function major-sixth-ratio($value, $increment) {
+  @return modular-scale($value, $increment, 5 / 3)
+}
+
+// Calculates the font size corresponding to the specified level.
+@function text-level($level) {
+  @return augmented-fourth-ratio($base-font-size, $level);
+}

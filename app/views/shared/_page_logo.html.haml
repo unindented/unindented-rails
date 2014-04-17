@@ -1,0 +1,7 @@
+%h1{class: [:title, :container]}
+  = link_to(root_path, title: title_text) do
+    %i{class: :icon, data: { icon: '&#xf101;'.html_safe }, aria: { hidden: :true }}
+    %span{class: :text}
+      = title_text
+%h2{class: [:subtitle, :container]}
+  = subtitle_text

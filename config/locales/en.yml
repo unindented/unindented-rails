@@ -1,0 +1,75 @@
+en:
+  title:                    "%{website}"
+  subtitle:                 "Home of %{author}"
+
+  shared:
+    page_nav:
+      home:                 "Home"
+      articles:             "Blog"
+      experiments:          "Lab"
+      about:                "About"
+      subscribe:            "Subscribe"
+      top:                  "Top"
+    page_meta:
+      copyright:            "All content by %{author} unless otherwise noted. %{license}."
+      license:              "Some rights reserved"
+    content_footer:
+      posted:               "Posted on %{date} under %{tags}."
+      comments:             "Got any comments or suggestions? Send me a %{tweet} or an %{email}."
+      email:                "email"
+      tweet:                "tweet"
+    related:
+      title:                "Try this next:"
+    misc:
+      atom:                 "Atom Feed"
+      tile:                 "Tile Feed"
+
+  layouts:
+    home:
+      title:                "Hi there!"
+    articles:
+      title:                "Articles"
+      prev:                 "Previous article"
+      next:                 "Next article"
+    articles_archive:
+      title:                "Articles"
+      title_for_date:       "Articles for %{date}"
+    experiments:
+      title:                "Experiments"
+      prev:                 "Previous experiment"
+      next:                 "Next experiment"
+    experiments_archive:
+      title:                "Experiments"
+      title_for_date:       "Experiments for %{date}"
+    tags:
+      title:                "Tags"
+      title_for_tag:        "Contents tagged with ‘%{tag}’"
+    errors:
+      foxes:                "Why’s foxes show up."
+
+  views:
+    pagination:
+      first:                "First"
+      last:                 "Last"
+      previous:             "Prev"
+      next:                 "Next"
+      truncate:             "..."
+
+  errors:
+    '404':
+      title:                "Page Not Found (404)"
+      header:               >
+        Couldn’t find it <span class="face">:(</span>
+      body:                 >
+        <p>Sorry, the page you’re looking for isn’t there. I’d suggest:</p>
+        <ul>
+          <li>Checking the address for typos</li>
+          <li>Visiting the <a href="/">homepage</a></li>
+        </ul>
+    '500':
+      title:                "Internal Server Error (500)"
+      header:               >
+        Something went wrong <span class="face">:'(</span>
+      body:                 >
+        <p>It looks as though something is really broken. Maybe a server is offline. Maybe the guy who wrote all this made a typo somewhere. Maybe he’s just hung over...</p>
+        <p>Anyways, I’d try reloading the page. If this annoying message still shows up, please let him know at <a href="mailto:daniel@unindented.org">daniel@unindented.org</a>.</p>

@@ -1,0 +1,15 @@
+font_name:         "unindented"
+css_prefix:        "glyph-"
+no_hash:           false
+
+project_root:      "app/assets"
+
+templates:         ["_fonts.scss"]
+
+input:
+  vectors:         "glyphs"
+  templates:       "glyphs"
+
+output:
+  fonts:           "fonts"
+  _fonts.scss:     "stylesheets/themes/shared"

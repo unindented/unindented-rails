@@ -1,0 +1,17 @@
+/* Breakpoints */
+
+$break-medium: new-breakpoint(min-width em(640) 4);
+$break-wide:   new-breakpoint(min-width em(880) 4);
+
+/* Variables */
+
+$border-small-radius: .25em;
+$border-large-radius: .5em;
+$border-small-width:  1px;
+$border-large-width:  3px;
+
+/* Imports */
+
+@import 'shared';
+@import 'error/base';
+@import 'error/misc';

@@ -1,0 +1,33 @@
+%nav{class: :container, role: :navigation}
+  %ul{class: :menu}
+    %li{class: :item}
+      = link_to(root_path, title: t('.home')) do
+        %i{class: :icon, data: { icon: '&#xf102;'.html_safe }, aria: { hidden: :true }}
+        %span{class: :text}
+          = t('.home')
+    %li{class: :item}
+      = link_to(articles_path, title: t('.articles')) do
+        %i{class: :icon, data: { icon: '&#xf103;'.html_safe }, aria: { hidden: :true }}
+        %span{class: :text}
+          = t('.articles')
+    %li{class: :item}
+      = link_to(experiments_path, title: t('.experiments')) do
+        %i{class: :icon, data: { icon: '&#xf104;'.html_safe }, aria: { hidden: :true }}
+        %span{class: :text}
+          = t('.experiments')
+    %li{class: :item}
+      = link_to(content_path(:about), title: t('.about')) do
+        %i{class: :icon, data: { icon: '&#xf105;'.html_safe }, aria: { hidden: :true }}
+        %span{class: :text}
+          = t('.about')
+    - if local_assigns.has_key?(:all) && all
+      %li{class: :item}
+        = link_to(feed_path(:atom, trailing_slash: false), title: t('.subscribe')) do
+          %i{class: :icon, data: { icon: '&#xf106;'.html_safe }, aria: { hidden: :true }}
+          %span{class: :text}
+            = t('.subscribe')
+      %li{class: :item}
+        = link_to('#top', title: t('.top')) do
+          %i{class: :icon, data: { icon: '&#xf10a;'.html_safe }, aria: { hidden: :true }}
+          %span{class: :text}
+            = t('.top')

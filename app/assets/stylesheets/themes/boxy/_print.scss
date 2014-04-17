@@ -1,0 +1,14 @@
+@media print {
+
+  body > header,
+  body > footer {
+    .logo, .nav {
+      display: none;
+    }
+  }
+
+  .related {
+    display: none;
+  }
+
+}

@@ -1,0 +1,24 @@
+/* Breakpoints */
+
+$break-medium: new-breakpoint(min-width em(480) 4);
+$break-wide:   new-breakpoint(min-width em(880) 4);
+
+/* Variables */
+
+$border-small-radius: .25em;
+$border-large-radius: .5em;
+$border-small-width:  1px;
+$border-large-width:  3px;
+
+$spacing-small:  1.25em;
+$spacing-medium: 2.5em;
+$spacing-wide:   5em;
+
+/* Imports */
+
+@import 'shared';
+@import 'boxy/base';
+@import 'boxy/header_footer';
+@import 'boxy/main';
+@import 'boxy/code';
+@import 'boxy/print';

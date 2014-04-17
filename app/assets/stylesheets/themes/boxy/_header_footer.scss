@@ -1,0 +1,73 @@
+/* Header and footer */
+
+body > header,
+body > footer {
+  background-color: $inverse-background-color;
+  color: $inverse-foreground-color;
+  text-align: center;
+
+  nav {
+    overflow: hidden;
+
+    @include flex-container;
+
+    .menu {
+      @include nolist;
+    }
+  }
+
+  a {
+    border: 0;
+    white-space: nowrap;
+
+    @include link-inverse;
+  }
+}
+
+body > header {
+  min-height: rhythm(28);
+  text-transform: uppercase;
+
+  .title, .subtitle {
+    display: none;
+  }
+
+  nav {
+    font-family: $font-family-title;
+    font-weight: $font-weight-title-bold;
+
+    .menu {
+      display: table;
+      width: 100%;
+    }
+
+    .item {
+      display: table-cell;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0 .75em;
+    }
+  }
+}
+
+body > footer {
+  nav {
+    .item {
+      display: inline-block;
+
+      &:after {
+        content: ' · ';
+      }
+      &:last-child:after {
+        content: '';
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 0 .5em;
+    }
+  }
+}

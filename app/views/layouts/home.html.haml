@@ -1,0 +1,7 @@
+- content_for(:application) do
+
+  %article{class: :directory}
+    = render partial: 'shared/contents_header', locals: { title: t('.title'), desc: @about.abstract_html }
+    = content_for?(:home) ? yield(:home) : yield
+
+= render template: 'layouts/application'

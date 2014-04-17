@@ -1,0 +1,121 @@
+/* Directory & Document */
+
+.directory, .document {
+  @include spacey($medium: true, $wide: true);
+  @include boxy($border-radius: $border-large-radius,
+    $foreground-color: $content-foreground-color,
+    $background-color: $content-background-color);
+
+  @include flex-container;
+  @include leader(-20);
+  @include trailer(8);
+
+  & > header {
+    @include leader(8, $property: padding);
+    @include trailer(8, $property: padding);
+
+    a {
+      @include link-inverse;
+    }
+  }
+
+  & > .body {
+    @include leader(6);
+    @include trailer(6);
+  }
+
+  & > footer {
+    font-style: italic;
+
+    @include trailer(6);
+  }
+}
+
+.directory {
+  @include spacey($medium: false, $wide: false);
+
+  & > .intro {
+    @include spacey;
+    @include leader(4, $property: padding);
+    @include trailer(4, $property: padding);
+  }
+}
+
+/* Related */
+
+.related {
+  @include spacey($medium: false, $wide: false);
+  @include boxy($border-radius: $border-large-radius,
+    $foreground-color: $content-foreground-color,
+    $background-color: $content-background-color);
+
+  @include flex-container;
+  @include trailer(8);
+
+  & > header {
+    @include leader(4, $property: padding);
+    @include trailer(4, $property: padding);
+  }
+}
+
+/* Records */
+
+.records {
+  @include media($break-wide) {
+    @include column-count(2);
+    @include column-width(50%);
+  }
+
+  @include nolist;
+  @include leader(3);
+  @include trailer(0);
+}
+
+.record {
+  padding: $border-small-radius;
+  width: 100%;
+
+  @include media($break-wide) {
+    display: inline-block;
+  }
+
+  a {
+    border: 0;
+    display: block;
+  }
+
+  article {
+    @include spacey($medium: false, $wide: false);
+    @include boxy($border-radius: $border-small-radius,
+      $foreground-color: $content-foreground-color,
+      $background-color: $content-background-color);
+
+    @include trailer(2);
+
+    & > header {
+      word-break: break-all;
+
+      @include transition-normal(background-color);
+
+      @include leader(4, $property: padding);
+      @include trailer(4, $property: padding);
+    }
+  }
+
+  .abstract {
+    @include clamp-to($lines: 4,
+      $foreground-color: $content-foreground-color,
+      $background-color: $content-background-color);
+  }
+}
+
+/* Colors */
+
+@for $i from 1 through length($secondary-colors) {
+  .color-#{$i} > header {
+    background-color: nth($secondary-colors, $i) !important;
+  }
+  a:hover .color-#{$i} > header {
+    background-color: darken(nth($secondary-colors, $i), 12.5%) !important;
+  }
+}

@@ -1,0 +1,60 @@
+@function flex-opposite($direction) {
+  $opposite-direction: left;
+
+  @if $direction == left {
+    $opposite-direction: right;
+  }
+
+  @return $opposite-direction;
+}
+
+@function flex-width($columns, $container-columns, $property) {
+  $width: 100%;
+
+  @if $property == margin {
+    $width: flex-grid($columns, $container-columns);
+  }
+
+  @return $width;
+}
+
+@mixin flex-container {
+  @include outer-container;
+}
+
+@mixin flex-span($span: $columns of $container-columns, $direction: none, $property: margin) {
+  $n-columns: nth($span, 1);
+  $container-columns: nth($span, 3);
+
+  // Set nesting context (used by flex-shift()).
+  $parent-columns: $container-columns;
+
+  $opposite-direction: flex-opposite($direction);
+
+  @if $direction != none {
+    float: #{$direction};
+    #{$property}-#{$opposite-direction}: flex-gutter($container-columns);
+  }
+
+  width: flex-width($n-columns, $container-columns, $property);
+
+  &:last-child {
+    #{$property}-#{$opposite-direction}: 0;
+  }
+}
+
+@mixin flex-shift($shift: $columns of $container-columns, $direction: left, $property: margin) {
+  $n-columns: nth($shift, 1);
+  $parent-columns: nth($shift, 3);
+
+  #{$property}-#{$direction}: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+
+  // Reset nesting context.
+  $parent-columns: $grid-columns;
+}
+
+@mixin flex-omega($direction: left, $property: margin) {
+  $opposite-direction: flex-opposite($direction);
+
+  #{$property}-#{$opposite-direction}: 0;
+}

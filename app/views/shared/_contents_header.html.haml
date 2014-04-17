@@ -1,0 +1,6 @@
+%header{class: [:container, (:intro if local_assigns.has_key?(:desc))]}
+  %h1{class: :title}
+    = title
+  - if local_assigns.has_key?(:desc)
+    %div{class: :desc}
+      = raw desc

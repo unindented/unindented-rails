@@ -1,0 +1,4 @@
+%ol{class: [:records, :container]}
+  - contents.each do |content|
+    %li{class: :record}
+      = render partial: 'shared/content', object: content

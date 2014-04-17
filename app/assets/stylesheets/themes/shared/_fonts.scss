@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Unindented';
+  src: font-url('unindented_f019799fa8ba63264897a6ab756fbbdb.eot');
+  src: font-url('unindented_f019799fa8ba63264897a6ab756fbbdb.eot?#iefix') format('embedded-opentype'),
+       font-url('unindented_f019799fa8ba63264897a6ab756fbbdb.woff') format('woff'),
+       font-url('unindented_f019799fa8ba63264897a6ab756fbbdb.ttf') format('truetype'),
+       font-url('unindented_f019799fa8ba63264897a6ab756fbbdb.svg#unindented') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.icon[data-icon]:before {
+  content: attr(data-icon);
+  font: normal normal 1em/1em Unindented;
+}

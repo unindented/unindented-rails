@@ -1,0 +1,93 @@
+/* Structural elements */
+
+html {
+  @include media($break-medium) {
+    font-size: 125%;
+  }
+
+  @include media($break-wide) {
+    font-size: 150%;
+  }
+}
+
+body {
+  background-color: $background-color;
+  color: $foreground-color;
+  padding: 1em 1em 0 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $header-color;
+  font-family: $font-family-normal;
+  font-weight: $font-weight-normal-bold;
+
+  @include leader(0);
+  @include trailer(1);
+}
+
+h1 {
+  text-align: center;
+
+  @include text-level(3);
+}
+
+h2, h3, h4, h5, h6 {
+  @include text-level(1);
+}
+
+/* Text formatting elements */
+
+a {
+  text-decoration: none;
+
+  @include link-normal;
+  @include trailing-border($lines: 0, $border-style: dotted);
+
+  @include transition-normal(border-color, color);
+}
+
+/* Form elements */
+
+form {
+  input, select, textarea {
+    background-color: $overflow-color;
+    border-color: $border-color;
+    border-radius: $border-large-radius;
+    color: $foreground-color;
+    min-height: 2em;
+
+    @include rhythm-borders($width: $border-large-width);
+    padding: .125em .25em;
+
+    @include placeholder {
+      color: $placeholder-color;
+    }
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+  }
+
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'] {
+    background-color: $button-color;
+  }
+}
+
+/* Patterns */
+
+.face {
+  color: $border-color;
+  white-space: nowrap;
+}
+
+/* Misc */
+
+@include selection {
+  background: $select-background-color;
+  color: $select-foreground-color;
+};

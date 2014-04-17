@@ -1,0 +1,349 @@
+@include establish-baseline;
+
+/* Structural elements */
+
+html {
+  font-family: $font-family-normal;
+  font-weight: $font-weight-normal-normal;
+  word-wrap: break-word;
+
+  @include text-leading(3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include leader(3);
+  @include trailer(1);
+}
+
+h1 {
+  @include text-level(3);
+}
+h2 {
+  @include text-level(2);
+}
+h3 {
+  @include text-level(1);
+}
+h4, h5, h6 {
+  @include text-level(0);
+}
+
+p {
+  @include leader(2);
+  @include trailer(2);
+}
+
+blockquote {
+  margin: 0 1.5em;
+
+  @include leader(2);
+  @include trailer(2);
+}
+
+hr {
+  border: 0;
+  text-align: center;
+  height: rhythm(2);
+
+  @include leader(2);
+  @include trailer(2);
+
+  &:after {
+    content: '***';
+    letter-spacing: 1em;
+  }
+}
+
+/* List elements */
+
+ol {
+  list-style: decimal outside;
+}
+ul {
+  list-style: disc outside;
+}
+ol, ul {
+  padding-left: 1.5em;
+
+  @include leader(2);
+  @include trailer(2);
+}
+ol ol, ol ul, ul ol, ul ul {
+  @include leader(0);
+  @include trailer(0);
+}
+
+dl {
+  padding-left: 0;
+
+  @include leader(2);
+  @include trailer(2);
+}
+dl dt {
+  font-weight: $font-weight-normal-bold;
+}
+dl dd {
+  margin-left: 1.5em;
+}
+
+/* Text formatting elements */
+
+em, i {
+  font-style: italic;
+}
+strong, b {
+  font-weight: $font-weight-normal-bold;
+}
+
+abbr[title], acronym[title], dfn[title] {
+  cursor: help;
+
+  a & {
+    cursor: pointer;
+  }
+}
+
+sup, sub {
+  @include text-level(-2);
+}
+
+small {
+  @include text-level(-1);
+}
+
+code, kbd, samp {
+  font-family: $font-family-code;
+}
+
+kbd {
+  white-space: nowrap;
+
+  @include text-level(-1);
+}
+
+pre {
+  font-family: $font-family-code;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+
+  @include text-level(-1);
+  @include leader(2);
+  @include trailer(2);
+}
+
+/* Media elements */
+
+canvas, figure, img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+
+  @include leader(2);
+  @include trailer(2);
+}
+
+canvas {
+  &.interactive {
+    @include prefixer(touch-action, none, ms spec);
+  }
+}
+
+figure {
+  &.equation {
+    overflow: auto;
+  }
+
+  &.fullwidth {
+    max-width: none;
+  }
+}
+
+/* Table elements */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  font-weight: $font-weight-normal-normal;
+  padding: 0 .5em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+thead th {
+  font-weight: $font-weight-normal-bold;
+
+  @include trailer(1, $property: padding);
+}
+tfoot td {
+  font-weight: $font-weight-normal-bold;
+
+  @include leader(1, $property: padding);
+}
+
+/* Form elements */
+
+form {
+  fieldset, legend, label, input, select, textarea, button, em {
+    display: block;
+    font-family: $font-family-normal;
+    font-weight: $font-weight-normal-normal;
+
+    @include text-level(0);
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    @include leader(2);
+    @include trailer(2);
+
+    ol, ul {
+      @include nolist;
+      @include leader(0);
+      @include trailer(0);
+    }
+  }
+
+  legend {
+    font-weight: $font-weight-normal-bold;
+
+    @include trailer(2);
+  }
+
+  label {
+    font-weight: $font-weight-normal-bold;
+
+    @include leader(2);
+  }
+
+  .options {
+    legend {
+      @include trailer(0);
+    }
+  }
+
+  .check, .options label {
+    font-weight: $font-weight-normal-normal;
+
+    @include leader(0);
+  }
+
+  input, select, textarea {
+    margin: .25em 0;
+    width: 100%;
+  }
+
+  input[type='button'],
+  input[type='checkbox'],
+  input[type='radio'],
+  input[type='reset'],
+  input[type='submit'] {
+    display: inline-block;
+    width: auto;
+  }
+  input[type='checkbox'],
+  input[type='radio'] {
+    margin-left: 0;
+    margin-right: .25em;
+    vertical-align: text-bottom;
+  }
+  input[type='button'],
+  input[type='reset'],
+  input[type='submit'] {
+    margin-right: .5em;
+    padding: 0 .5em;
+  }
+  input[type='search'] {
+    @include appearance(textfield);
+  }
+
+  em {
+    @include text-level(-1);
+  }
+
+  .buttons {
+    @include leader(2);
+    @include trailer(2);
+  }
+}
+
+/* Patterns */
+
+.block {
+  @include clearfix;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.cloud {
+  @include nolist;
+  @include leader(3);
+  @include trailer(5);
+
+  li {
+    display: inline-block;
+
+    a {
+      padding: 0 .5em;
+    }
+  }
+
+  .l {
+    @include text-level(3);
+  }
+  .m {
+    @include text-level(2);
+  }
+  .s {
+    @include text-level(1);
+  }
+}
+
+.pagination {
+  @include nolist;
+  @include leader(0);
+  @include trailer(3);
+
+  li {
+    display: inline-block;
+
+    @include trailer(2);
+  }
+
+  a, span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .first a:before, .prev a:before {
+    content: '← ';
+  }
+  .next a:after, .last a:after {
+    content: ' →';
+  }
+}
+
+/* Font loader */
+
+.wf-loading {
+  font-family: $font-family-normal-fallback;
+
+  fieldset, legend, label, input, select, textarea, button, em {
+    font-family: $font-family-normal-fallback;
+  }
+
+  code, kbd, pre, samp {
+    font-family: $font-family-code-fallback;
+  }
+}

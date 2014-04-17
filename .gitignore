@@ -1,0 +1,9 @@
+/.bundle
+/.vagrant
+/build/
+/coverage/
+/tmp/
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/rerun.txt

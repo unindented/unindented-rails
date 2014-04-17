@@ -1,0 +1,14 @@
+- content_for(:title) do
+  = @date.valid? ? t('.title_for_date', date: @date.localize) : t('.title')
+
+- content_for(:navigation) do
+  = navigation_link_tag(:up, @date.parent_route, title: t('.title')) if @date.valid?
+
+- content_for(:application) do
+
+  %article{class: :directory}
+    = render partial: 'shared/contents_header', locals: { title: yield(:title) }
+    = content_for?(:articles_archive) ? yield(:articles_archive) : yield
+    = render partial: 'shared/contents_footer', locals: { contents: @contents }
+
+= render template: 'layouts/application'

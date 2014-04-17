@@ -1,0 +1,12 @@
+pre-start script
+
+bash << "EOF"
+  mkdir -p <%= log %>
+  chown -R <%= user %> <%= log %>
+EOF
+
+end script
+
+start on vagrant-mounted MOUNTPOINT=/vagrant
+
+stop on runlevel [016]

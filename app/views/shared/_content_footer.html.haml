@@ -1,0 +1,6 @@
+%footer{class: :container}
+  - tweet = tweet_link(t('.tweet'), url: absolute_url(content.route), via: twitter_text)
+  - email = email_link(t('.email'), subject: yield(:title).strip)
+
+  = raw t('.posted', date: content.date_link, tags: content.tags_links.to_sentence)
+  = raw t('.comments', tweet: tweet, email: email)

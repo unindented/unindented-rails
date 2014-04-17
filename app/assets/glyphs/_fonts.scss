@@ -1,0 +1,20 @@
+<%-
+  font_id   = @opts.font_name
+  font_name = @opts.font_name.capitalize
+  font_path = File.basename(@font_path_alt)
+-%>
+@font-face {
+  font-family: '<%= font_name %>';
+  src: font-url('<%= font_path %>.eot');
+  src: font-url('<%= font_path %>.eot?#iefix') format('embedded-opentype'),
+       font-url('<%= font_path %>.woff') format('woff'),
+       font-url('<%= font_path %>.ttf') format('truetype'),
+       font-url('<%= font_path %>.svg#<%= font_id %>') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.icon[data-icon]:before {
+  content: attr(data-icon);
+  font: normal normal 1em/1em <%= font_name %>;
+}

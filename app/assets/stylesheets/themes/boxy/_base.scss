@@ -1,0 +1,252 @@
+/* Structural elements */
+
+html {
+  @include media($break-medium) {
+    font-size: 125%;
+  }
+
+  @include media($break-wide) {
+    font-size: 150%;
+  }
+}
+
+body {
+  background-color: $background-color;
+  color: $foreground-color;
+
+  @include clearfix;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $header-color;
+  font-family: $font-family-title;
+  font-weight: $font-weight-title-bold;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+hr {
+  color: $border-color;
+}
+
+/* Text formatting elements */
+
+a {
+  text-decoration: none;
+
+  @include link-normal;
+  @include transition-normal(border-color, color);
+
+  @include trailing-border($lines: 0, $border-style: dotted);
+}
+
+abbr[title], acronym[title], dfn[title] {
+  @include trailing-border($lines: 0, $border-style: dotted);
+
+  label & {
+    border: 0;
+  }
+}
+
+mark {
+  background-color: $select-background-color;
+  color: $select-foreground-color
+}
+
+code {
+  color: $code-color;
+
+  a & {
+    @extend a;
+  }
+}
+
+kbd, pre {
+  background-color: $overflow-color;
+  border-color: $border-color;
+}
+
+kbd {
+  border-radius: $border-small-radius;
+
+  @include rhythm-borders($width: $border-small-width, $font-size: text-level(-1));
+}
+
+pre {
+  border-radius: $border-large-radius;
+
+  @include rhythm-borders($width: $border-large-width, $font-size: text-level(-1));
+}
+
+/* Media elements */
+
+canvas, figure, img {
+  border-color: $border-color;
+  border-radius: $border-large-radius;
+
+  @include transition-normal(border-color);
+
+  @include rhythm-borders($width: $border-large-width);
+  padding: 0;
+}
+
+figure {
+  &.fullwidth {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+
+    @include fullspacey;
+  }
+
+  canvas, img {
+    border: 0;
+    border-radius: 0;
+
+    @include leader(0);
+    @include trailer(0);
+  }
+}
+
+/* Table elements */
+
+thead tr {
+  border-color: $border-color;
+
+  @include trailing-border($width: $border-large-width);
+}
+
+tfoot tr {
+  border-color: $border-color;
+
+  @include leading-border($width: $border-large-width);
+}
+
+tbody tr:nth-child(odd) {
+  background-color: $background-color;
+}
+
+/* Form elements */
+
+form {
+  input, select, textarea {
+    background-color: $overflow-color;
+    border-color: $border-color;
+    border-radius: $border-large-radius;
+    color: $foreground-color;
+    min-height: 2em;
+
+    @include rhythm-borders($width: $border-large-width);
+    padding: .125em .25em;
+
+    @include placeholder {
+      color: $placeholder-color;
+    }
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+  }
+
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'] {
+    background-color: $button-color;
+  }
+}
+
+/* Patterns */
+
+.overflow {
+  background-color: $overflow-color;
+  border-color: $border-color;
+  border-radius: $border-large-radius;
+
+  @include rhythm-borders($width: $border-large-width);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vcard {
+  border-color: $border-color;
+  border-radius: $border-large-radius;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 21.5em;
+
+  position: relative;
+
+  @include clearfix;
+  @include rhythm-borders($width: $border-large-width, $lines: 2);
+
+  &:after {
+    @include media($break-medium) {
+      color: $border-color;
+      content: '\f101';
+      font-family: 'Unindented';
+
+      position: absolute;
+      right: 2.5%;
+      top: 0.075em;
+
+      @include text-level(4);
+    }
+  }
+
+  dt, dd {
+    @include ellipsis;
+  }
+
+  dt {
+    float: left;
+    text-align: right;
+    margin-right: 2.5%;
+    width: 22.5%;
+
+  }
+
+  dd {
+    margin-left: 25%;
+    width: 75%;
+  }
+}
+
+.cloud {
+  font-family: $font-family-title;
+  font-weight: $font-weight-title-bold;
+  letter-spacing: 0.075em;
+  text-align: center;
+  text-transform: uppercase;
+
+  a {
+    border: 0;
+
+    @include link-alternate;
+  }
+}
+
+.pagination {
+  text-align: center;
+
+  a, span {
+    border-radius: $border-large-radius;
+
+    @include rhythm-borders($width: $border-large-width);
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  a {
+    @include link-alternate;
+  }
+}
+
+/* Misc */
+
+@include selection {
+  background-color: $select-background-color;
+  color: $select-foreground-color;
+};

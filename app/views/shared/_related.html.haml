@@ -1,0 +1,10 @@
+- related = content.related
+
+- unless related.empty?
+  %aside{class: :related}
+
+    %header{class: :container}
+      %h1{class: :title}
+        = t('.title')
+
+    = render partial: 'shared/contents', object: related

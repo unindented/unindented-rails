@@ -1,0 +1,14 @@
+- content_for(:title) do
+  = @tag.present? ? t('.title_for_tag', tag: @tag.name) : t('.title')
+
+- content_for(:navigation) do
+  = navigation_link_tag(:up, @tag.parent_route, title: t('.title')) if @tag.present?
+
+- content_for(:application) do
+
+  %article{class: :directory}
+    = render partial: 'shared/contents_header', locals: { title: yield(:title) }
+    = content_for?(:tags) ? yield(:tags) : yield
+    = render partial: 'shared/contents_footer', locals: { contents: @contents } if @tag.present?
+
+= render template: 'layouts/application'

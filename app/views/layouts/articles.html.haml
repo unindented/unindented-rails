@@ -1,0 +1,28 @@
+- content_for(:title) do
+  = @content.title
+
+- content_for(:description) do
+  = @content.abstract
+
+- content_for(:navigation) do
+  - p = @content.previous_route
+  - n = @content.next_route
+
+  = navigation_link_tag(:up, @content.parent_route, title: t('.title'))
+  = navigation_link_tag(:prev, p, title: t('.prev')) if p.present?
+  = navigation_link_tag(:next, n, title: t('.next')) if n.present?
+
+- content_for(:extensions) do
+  = mathjax_script_tag if @content.extensions_list.include?('MathJax')
+
+- content_for(:application) do
+
+  %article{class: [:document, "color-#{@content.color}"]}
+    = render partial: 'shared/content_header', locals: { content: @content }
+    %div{class: [:body, :container]}
+      = content_for?(:articles) ? yield(:articles) : yield
+    = render partial: 'shared/content_footer', locals: { content: @content }
+
+  = render partial: 'shared/related', locals: { content: @content }
+
+= render template: 'layouts/application'
