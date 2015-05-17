@@ -1,6 +1,6 @@
-# My Website [![Build Status](https://img.shields.io/travis/unindented/unindented-rails.svg)](http://travis-ci.org/unindented/unindented-rails) [![Dependency Status](https://img.shields.io/gemnasium/unindented/unindented-rails.svg)](https://gemnasium.com/unindented/unindented-rails) [![Coverage Status](https://img.shields.io/coveralls/unindented/unindented-rails.svg)](https://coveralls.io/r/unindented/unindented-rails) [![Quality Status](https://img.shields.io/codeclimate/github/unindented/unindented-rails.svg)](https://codeclimate.com/github/unindented/unindented-rails)
+# My Website [![Build Status](https://img.shields.io/travis/unindented/unindented-rails.svg)](http://travis-ci.org/unindented/unindented-rails) [![Dependency Status](https://img.shields.io/gemnasium/unindented/unindented-rails.svg)](https://gemnasium.com/unindented/unindented-rails) [![Coverage Status](https://img.shields.io/coveralls/unindented/unindented-rails.svg)](https://coveralls.io/r/unindented/unindented-rails) [![Quality Status](https://img.shields.io/codeclimate/github/unindented/unindented-rails.svg)](https://codeclimate.com/github/unindented/unindented-rails) ![Abandoned](https://img.shields.io/badge/status-abandoned-red.svg)
 
-This is the source code for my website, [unindented.org](https://unindented.org/).
+This is the source code for my (old) website, [unindented.org](https://unindented.org/).
 
 The contents themselves are versioned separately as a submodule. You can find them at <https://github.com/unindented/unindented-contents>.
 
