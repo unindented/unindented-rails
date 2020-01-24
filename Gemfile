@@ -20,7 +20,7 @@ gem 'neat',                        '~> 1.5.1'
 
 gem 'htmlentities',                '~> 4.3.2', require: false
 gem 'kramdown',                    '~> 1.5.0', require: false
-gem 'nokogiri',                    '~> 1.6.5', require: false
+gem 'nokogiri',                    '~> 1.10.4', require: false
 gem 'pygments.rb',                 '~> 0.6.0', require: false
 
 group :development do
